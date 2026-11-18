@@ -1,0 +1,28 @@
+{
+  "criterion": "diagnostic unconstrained argmax fi_benign_norm over the full (q_base, kappa) grid at the headline point; not used to select the shipped parameters",
+  "selected_q_base": 0.045,
+  "selected_kappa": 0.5,
+  "selected_phi": 0.8484220873792936,
+  "shipped_q_base": 0.025,
+  "shipped_kappa": 4.0,
+  "shipped_phi": 0.7825271497363241,
+  "phi_gain": 0.0658949376429695,
+  "selection_changes_default": true,
+  "winner_on_kappa_boundary": true,
+  "winner_on_q_boundary": true,
+  "kappa_grid": [
+    0.5,
+    1.0,
+    2.0,
+    4.0,
+    6.0,
+    8.0
+  ],
+  "q_base_grid": [
+    0.015,
+    0.02,
+    0.025,
+    0.03,
+    0.045
+  ]
+}

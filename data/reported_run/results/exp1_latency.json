@@ -1,0 +1,150 @@
+{
+  "scenarios": [
+    {
+      "scenario": "S1",
+      "configuration": "First req. (BOOT + 1 AUTH)",
+      "mean_ms": 0.305001032,
+      "std_ms": 0.014329609203429312,
+      "ci_lo": 0.3021577266508947,
+      "ci_hi": 0.3078443373491053,
+      "overhead_vs_S4": 0.6805360062585728
+    },
+    {
+      "scenario": "S2",
+      "configuration": "Reqs. 1..N (BOOT + first AUTH, amort.)",
+      "mean_ms": 0.18622673639999998,
+      "std_ms": 0.004380933244791598,
+      "ci_lo": 0.18535746419919158,
+      "ci_hi": 0.18709600860080838,
+      "overhead_vs_S4": 0.026097301363308123
+    },
+    {
+      "scenario": "S3",
+      "configuration": "Reqs. 2..N (first request excluded)",
+      "mean_ms": 0.1804056622105263,
+      "std_ms": 0.0033871309588447127,
+      "ci_lo": 0.17973358194394803,
+      "ci_hi": 0.1810777424771046,
+      "overhead_vs_S4": -0.005976441818363987
+    },
+    {
+      "scenario": "S4",
+      "configuration": "Reqs. 1..N (established, no AUTH)",
+      "mean_ms": 0.18149032859999997,
+      "std_ms": 0.004858036224075145,
+      "ci_lo": 0.1805263888172769,
+      "ci_hi": 0.18245426838272305,
+      "overhead_vs_S4": 0.0
+    },
+    {
+      "scenario": "S5",
+      "configuration": "Reqs. 1..N (BOOT + N AUTH)",
+      "mean_ms": 0.2088069122,
+      "std_ms": 0.004351154803160628,
+      "ci_lo": 0.2079435486880592,
+      "ci_hi": 0.2096702757119408,
+      "overhead_vs_S4": 0.1505126130451011
+    }
+  ],
+  "overhead_vs_S4": [
+    {
+      "comparison": "S1 - S4",
+      "configuration": "First req. (BOOT + 1 AUTH)",
+      "overhead_ms": 0.12351070339999999,
+      "ci_lo_ms": 0.12038847976318486,
+      "ci_hi_ms": 0.12663292703681514,
+      "overhead_pct": 68.05360062585726,
+      "pct_ci_lo": 66.33327554798689,
+      "pct_ci_hi": 69.77392570372763,
+      "n_seeds": 100
+    },
+    {
+      "comparison": "S2 - S4",
+      "configuration": "Reqs. 1..N (BOOT + first AUTH, amort.)",
+      "overhead_ms": 0.0047364078000000035,
+      "ci_lo_ms": 0.0033986149177363326,
+      "ci_hi_ms": 0.0060742006822636745,
+      "overhead_pct": 2.6097301363308043,
+      "pct_ci_lo": 1.8726148902550026,
+      "pct_ci_hi": 3.346845382406606,
+      "n_seeds": 100
+    },
+    {
+      "comparison": "S3 - S4",
+      "configuration": "Reqs. 2..N (first request excluded)",
+      "overhead_ms": -0.0010846663894736785,
+      "ci_lo_ms": -0.0022719841114680096,
+      "ci_hi_ms": 0.00010265133252065277,
+      "overhead_pct": -0.5976441818364083,
+      "pct_ci_lo": -1.2518485855383537,
+      "pct_ci_hi": 0.05656022186553711,
+      "n_seeds": 100
+    },
+    {
+      "comparison": "S5 - S4",
+      "configuration": "Reqs. 1..N (BOOT + N AUTH)",
+      "overhead_ms": 0.02731658360000001,
+      "ci_lo_ms": 0.025982625204087863,
+      "ci_hi_ms": 0.028650541995912156,
+      "overhead_pct": 15.051261304510087,
+      "pct_ci_lo": 14.316258835672116,
+      "pct_ci_hi": 15.786263773348058,
+      "n_seeds": 100
+    }
+  ],
+  "tost_diagnostic": [
+    {
+      "comparison": "S3 vs S4",
+      "margin_pct": 3.0,
+      "mean_a": 0.1804056622105263,
+      "mean_b": 0.18149032859999997,
+      "diff": -0.0010846663894736785,
+      "margin": 0.005444709857999999,
+      "ci_lo": -0.0020782129083689272,
+      "ci_hi": -9.111987057842962e-05,
+      "p_tost": 3.91363093961331e-11,
+      "equivalent": true,
+      "margin_used_pct": -1.6735486913879485
+    },
+    {
+      "comparison": "S5 vs S4",
+      "margin_pct": 3.0,
+      "mean_a": 0.2088069122,
+      "mean_b": 0.18149032859999997,
+      "diff": 0.02731658360000001,
+      "margin": 0.005444709857999999,
+      "ci_lo": 0.026200328282608282,
+      "ci_hi": 0.028432838917391737,
+      "p_tost": 1.0,
+      "equivalent": false,
+      "margin_used_pct": 522.2103593934379
+    },
+    {
+      "comparison": "S3 vs S4",
+      "margin_pct": 1.0,
+      "mean_a": 0.1804056622105263,
+      "mean_b": 0.18149032859999997,
+      "diff": -0.0010846663894736785,
+      "margin": 0.0018149032859999998,
+      "ci_lo": -0.0020782129083689272,
+      "ci_hi": -9.111987057842962e-05,
+      "p_tost": 0.11261471317341021,
+      "equivalent": false,
+      "margin_used_pct": -5.020646074163845
+    },
+    {
+      "comparison": "S5 vs S4",
+      "margin_pct": 1.0,
+      "mean_a": 0.2088069122,
+      "mean_b": 0.18149032859999997,
+      "diff": 0.02731658360000001,
+      "margin": 0.0018149032859999998,
+      "ci_lo": 0.026200328282608282,
+      "ci_hi": 0.028432838917391737,
+      "p_tost": 1.0,
+      "equivalent": false,
+      "margin_used_pct": 1566.6310781803136
+    }
+  ],
+  "note": "The reported result is the paired overhead with its CI. TOST at +/-3% is kept as a secondary diagnostic."
+}

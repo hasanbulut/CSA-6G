@@ -1,0 +1,94 @@
+{
+  "summary": [
+    {
+      "cls": "context_mismatch",
+      "trials": 100,
+      "correct": 100,
+      "accuracy": 1.0,
+      "expected": "context_mismatch",
+      "observed": "context_mismatch",
+      "external": "not_authorized",
+      "aead_opens": 100
+    },
+    {
+      "cls": "counter_rollback",
+      "trials": 100,
+      "correct": 100,
+      "accuracy": 1.0,
+      "expected": "counter_rollback",
+      "observed": "counter_rollback",
+      "external": "not_authorized",
+      "aead_opens": 100
+    },
+    {
+      "cls": "evicted_replay",
+      "trials": 100,
+      "correct": 100,
+      "accuracy": 1.0,
+      "expected": "sequence_rollback",
+      "observed": "sequence_rollback",
+      "external": "not_authorized",
+      "aead_opens": 0
+    },
+    {
+      "cls": "expired_token",
+      "trials": 100,
+      "correct": 100,
+      "accuracy": 1.0,
+      "expected": "token_expired",
+      "observed": "token_expired",
+      "external": "not_authorized",
+      "aead_opens": 0
+    },
+    {
+      "cls": "nonce_replay",
+      "trials": 100,
+      "correct": 100,
+      "accuracy": 1.0,
+      "expected": "nonce_replay",
+      "observed": "nonce_replay",
+      "external": "not_authorized",
+      "aead_opens": 0
+    },
+    {
+      "cls": "tampered_hmac",
+      "trials": 100,
+      "correct": 100,
+      "accuracy": 1.0,
+      "expected": "integrity_fail",
+      "observed": "integrity_fail",
+      "external": "not_authorized",
+      "aead_opens": 0
+    },
+    {
+      "cls": "timestamp_replay",
+      "trials": 100,
+      "correct": 100,
+      "accuracy": 1.0,
+      "expected": "stale_timestamp",
+      "observed": "stale_timestamp",
+      "external": "not_authorized",
+      "aead_opens": 0
+    },
+    {
+      "cls": "valid_control",
+      "trials": 100,
+      "correct": 100,
+      "accuracy": 1.0,
+      "expected": "ok",
+      "observed": "ok",
+      "external": "ok",
+      "aead_opens": 100
+    }
+  ],
+  "overall_accuracy": 1.0,
+  "minimal_disclosure_holds": true,
+  "cheap_rejection_holds": true,
+  "cheap_rejection_evidence": {
+    "measure": "counted AES-GCM decrypt invocations on the envelope key, not the stage timer",
+    "aead_opens_on_hmac_failure": 0,
+    "aead_opens_on_admitted_control": 100,
+    "trials_per_class": 100
+  },
+  "caveat": "functional verification of the tested classes; not a formal protocol proof"
+}

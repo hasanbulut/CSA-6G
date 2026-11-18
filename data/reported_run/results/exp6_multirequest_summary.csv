@@ -1,0 +1,5 @@
+workload,classifier,macro_auc
+rate_independent,logreg,0.4975089445745957
+rate_independent,randomforest,0.4998587013989843
+rate_correlated,logreg,0.9955451967989751
+rate_correlated,randomforest,0.9953069995320973

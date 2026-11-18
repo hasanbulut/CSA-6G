@@ -1,0 +1,103 @@
+{
+  "summary": [
+    {
+      "burst_N": 200,
+      "mean_ms": 0.07438649895833335,
+      "mean_ci_lo": 0.07404389777646392,
+      "mean_ci_hi": 0.07472910014020279,
+      "p95_ms": 0.07777638833333332,
+      "p95_ci_lo": 0.07705476399987353,
+      "p95_ci_hi": 0.07849801266679311,
+      "unmatched_mean_ms": 0.07349382706787842,
+      "unmatched_ci_lo": 0.07305129901776371,
+      "unmatched_ci_hi": 0.07393635511799314,
+      "matched_samples": 32,
+      "admitted_frac": 0.3401666666666667,
+      "admitted_samples": 68.03333333333333,
+      "mean_cap_scale": 0.19518349202473959,
+      "mean_denial_gap": 2.069648001695285,
+      "repetitions": 30,
+      "nodes": 24,
+      "beta": 3,
+      "tenants": 20
+    },
+    {
+      "burst_N": 5000,
+      "mean_ms": 0.07577175520833332,
+      "mean_ci_lo": 0.07514643959721944,
+      "mean_ci_hi": 0.0763970708194472,
+      "p95_ms": 0.08004364333333334,
+      "p95_ci_lo": 0.07839758237813281,
+      "p95_ci_hi": 0.08168970428853388,
+      "unmatched_mean_ms": 0.07494369185610972,
+      "unmatched_ci_lo": 0.07395355706520354,
+      "unmatched_ci_hi": 0.0759338266470159,
+      "matched_samples": 32,
+      "admitted_frac": 0.013826666666666657,
+      "admitted_samples": 69.13333333333334,
+      "mean_cap_scale": 0.10311311848958334,
+      "mean_denial_gap": 6.982510217886807,
+      "repetitions": 30,
+      "nodes": 24,
+      "beta": 3,
+      "tenants": 20
+    }
+  ],
+  "matched_samples_per_run": 32,
+  "warmup_discarded": 10,
+  "denial_gap_cap": 2,
+  "denial_gap_strata": [
+    {
+      "denial_gap": "0",
+      "samples": 1506,
+      "mean_ms": 0.07652271580345286
+    },
+    {
+      "denial_gap": "1-2",
+      "samples": 1095,
+      "mean_ms": 0.07287060182648401
+    },
+    {
+      "denial_gap": "3-5",
+      "samples": 525,
+      "mean_ms": 0.0720286076190476
+    },
+    {
+      "denial_gap": "6+",
+      "samples": 389,
+      "mean_ms": 0.07224376863753214
+    }
+  ],
+  "denial_gap_corr": 0.09794016048210875,
+  "across_N_pct": {
+    "mean": 1.8622414946238213,
+    "ci_lo": 0.8043980360642689,
+    "ci_hi": 2.9200849531833737,
+    "seeds": 30
+  },
+  "within_run_drift_pct": {
+    "mean": -1.042589530684268,
+    "ci_lo": -1.8397626166562002,
+    "ci_hi": -0.2454164447123358,
+    "runs": 60
+  },
+  "deployment": {
+    "nodes": 24,
+    "beta": 3,
+    "tenants": 20,
+    "policy": "shipped parameters, not detuned"
+  },
+  "admitted_frac": {
+    "200": 0.3401666666666667,
+    "5000": 0.013826666666666657
+  },
+  "mean_cap_scale": {
+    "200": 0.19518349202473959,
+    "5000": 0.10311311848958334
+  },
+  "composition_note": "The admitted fraction falls with N because the AIMD scale ratchets toward its floor under a binding rate gate, so a longer stream ends with more of the tenant population there. That is a property of the policy, not measurement noise, and it means a raw N-sweep does not isolate N. The headline figure is therefore the matched-sample paired comparison, corroborated by a within-run early-vs-late drift test that no composition argument can explain away.",
+  "denial_density_note": "Denied requests are not timed but are executed between timed samples, and the arm with the lower admit rate carries several times more of them. Whether that measurably moves the next sample, and in which direction, is machine-dependent: see denial_gap_correlation and the exp2_denial_gap_strata table for this run rather than relying on this note. Both arms are restricted to a denial gap of at most GAP_CAP either way, because matching is cheap and does not require the effect to be real. Any effect here is a harness artefact, not a property of the allocation sub-pipeline.",
+  "denial_gap_correlation": 0.09794016048210875,
+  "warmup_note": "The first admissions in a fresh process cost ~2.7x the steady state. Because the two arms yield different numbers of admitted samples, that fixed transient is diluted differently in each and biases the comparison toward 'cost falls with load' on its own. It is discarded.",
+  "scope": "allocation sub-pipeline on the admitted path only; not end-to-end admission, not a DoS-resilience result"
+}

@@ -1,0 +1,7 @@
+condition,classifier,macro_auc,n_features,features
+Baseline,logreg,1.0,5,"cpu, memory, storage_GB, latency_ms, sla_class"
+Baseline,randomforest,1.0,5,"cpu, memory, storage_GB, latency_ms, sla_class"
+CSA-6G,logreg,0.5001262218529895,9,"envelope_bytes, ciphertext_bytes, ct_mean, ct_std, ct_entropy, ct_byte0, ct_byte1, ct_byte_last, admission_latency_ms"
+CSA-6G,randomforest,0.4976176157795134,9,"envelope_bytes, ciphertext_bytes, ct_mean, ct_std, ct_entropy, ct_byte0, ct_byte1, ct_byte_last, admission_latency_ms"
+Unpadded JSON + AEAD,logreg,0.9122250546030498,4,"envelope_bytes, ct_mean, ct_std, ct_entropy"
+Unpadded JSON + AEAD,randomforest,0.9012310176257489,4,"envelope_bytes, ct_mean, ct_std, ct_entropy"

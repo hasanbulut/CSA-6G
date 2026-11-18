@@ -1,0 +1,27 @@
+{
+  "results": [
+    {
+      "workload": "rate_independent",
+      "classifier": "logreg",
+      "macro_auc": 0.4975089445745957
+    },
+    {
+      "workload": "rate_independent",
+      "classifier": "randomforest",
+      "macro_auc": 0.4998587013989843
+    },
+    {
+      "workload": "rate_correlated",
+      "classifier": "logreg",
+      "macro_auc": 0.9955451967989751
+    },
+    {
+      "workload": "rate_correlated",
+      "classifier": "randomforest",
+      "macro_auc": 0.9953069995320973
+    }
+  ],
+  "rate_independent_auc": 0.4998587013989843,
+  "rate_correlated_auc": 0.9955451967989751,
+  "interpretation": "the fixed-size envelope removes single-request field leakage but does not remove session-behaviour leakage; mitigations are cover traffic, batching, or rotating the cleartext key handle"
+}

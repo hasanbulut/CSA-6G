@@ -1,0 +1,220 @@
+{
+  "results": [
+    {
+      "condition": "Baseline",
+      "classifier": "logreg",
+      "macro_auc": 1.0,
+      "n_features": 5,
+      "features": "cpu, memory, storage_GB, latency_ms, sla_class"
+    },
+    {
+      "condition": "Baseline",
+      "classifier": "randomforest",
+      "macro_auc": 1.0,
+      "n_features": 5,
+      "features": "cpu, memory, storage_GB, latency_ms, sla_class"
+    },
+    {
+      "condition": "CSA-6G",
+      "classifier": "logreg",
+      "macro_auc": 0.5001262218529895,
+      "n_features": 9,
+      "features": "envelope_bytes, ciphertext_bytes, ct_mean, ct_std, ct_entropy, ct_byte0, ct_byte1, ct_byte_last, admission_latency_ms"
+    },
+    {
+      "condition": "CSA-6G",
+      "classifier": "randomforest",
+      "macro_auc": 0.4976176157795134,
+      "n_features": 9,
+      "features": "envelope_bytes, ciphertext_bytes, ct_mean, ct_std, ct_entropy, ct_byte0, ct_byte1, ct_byte_last, admission_latency_ms"
+    },
+    {
+      "condition": "Unpadded JSON + AEAD",
+      "classifier": "logreg",
+      "macro_auc": 0.9122250546030498,
+      "n_features": 4,
+      "features": "envelope_bytes, ct_mean, ct_std, ct_entropy"
+    },
+    {
+      "condition": "Unpadded JSON + AEAD",
+      "classifier": "randomforest",
+      "macro_auc": 0.9012310176257489,
+      "n_features": 4,
+      "features": "envelope_bytes, ct_mean, ct_std, ct_entropy"
+    }
+  ],
+  "best_baseline_auc": 1.0,
+  "best_protected_auc": 0.5001262218529895,
+  "leak_detection": [
+    {
+      "leak_strength": 0.0,
+      "macro_auc_logreg": 0.49774057203864935,
+      "macro_auc_randomforest": 0.5016285349614237,
+      "best_macro_auc": 0.5016285349614237,
+      "injected_feature_mi": 0.0,
+      "mi_above_family_floor": false,
+      "detected": false
+    },
+    {
+      "leak_strength": 0.02,
+      "macro_auc_logreg": 0.5024311043115429,
+      "macro_auc_randomforest": 0.5048159935782405,
+      "best_macro_auc": 0.5048159935782405,
+      "injected_feature_mi": 0.0,
+      "mi_above_family_floor": false,
+      "detected": false
+    },
+    {
+      "leak_strength": 0.05,
+      "macro_auc_logreg": 0.5116744126560498,
+      "macro_auc_randomforest": 0.5058201514801844,
+      "best_macro_auc": 0.5116744126560498,
+      "injected_feature_mi": 0.0,
+      "mi_above_family_floor": false,
+      "detected": false
+    },
+    {
+      "leak_strength": 0.1,
+      "macro_auc_logreg": 0.5274685267913211,
+      "macro_auc_randomforest": 0.5148751837517831,
+      "best_macro_auc": 0.5274685267913211,
+      "injected_feature_mi": 0.0012362093884239478,
+      "mi_above_family_floor": false,
+      "detected": false
+    },
+    {
+      "leak_strength": 0.2,
+      "macro_auc_logreg": 0.5583195121949573,
+      "macro_auc_randomforest": 0.5328837910781967,
+      "best_macro_auc": 0.5583195121949573,
+      "injected_feature_mi": 0.007815794742480175,
+      "mi_above_family_floor": false,
+      "detected": false
+    },
+    {
+      "leak_strength": 0.25,
+      "macro_auc_logreg": 0.5734272246083196,
+      "macro_auc_randomforest": 0.547146220090145,
+      "best_macro_auc": 0.5734272246083196,
+      "injected_feature_mi": 0.016768357359154162,
+      "mi_above_family_floor": false,
+      "detected": false
+    },
+    {
+      "leak_strength": 0.3,
+      "macro_auc_logreg": 0.5883991724249361,
+      "macro_auc_randomforest": 0.5650393272664447,
+      "best_macro_auc": 0.5883991724249361,
+      "injected_feature_mi": 0.02205365593301556,
+      "mi_above_family_floor": true,
+      "detected": true
+    },
+    {
+      "leak_strength": 0.35,
+      "macro_auc_logreg": 0.6031186558971874,
+      "macro_auc_randomforest": 0.5810621844943615,
+      "best_macro_auc": 0.6031186558971874,
+      "injected_feature_mi": 0.02953522673324782,
+      "mi_above_family_floor": true,
+      "detected": true
+    },
+    {
+      "leak_strength": 0.4,
+      "macro_auc_logreg": 0.6177257264676133,
+      "macro_auc_randomforest": 0.5913633414004439,
+      "best_macro_auc": 0.6177257264676133,
+      "injected_feature_mi": 0.038079034633335285,
+      "mi_above_family_floor": true,
+      "detected": true
+    },
+    {
+      "leak_strength": 0.5,
+      "macro_auc_logreg": 0.6465310539157655,
+      "macro_auc_randomforest": 0.6236121285528441,
+      "best_macro_auc": 0.6465310539157655,
+      "injected_feature_mi": 0.0730519826177718,
+      "mi_above_family_floor": true,
+      "detected": true
+    }
+  ],
+  "leak_detection_floor": 0.3,
+  "leak_detection_note": "positive control. A synthetic observable carrying a controlled fraction of a one-sigma class separation is appended to the real CSA-6G feature set and the identical classifier and MI pipeline is re-run. leak_detection_floor is the smallest injected strength the pipeline catches, so the CSA-6G null result reads 'no leak of that size or larger is present' rather than 'we found nothing'. Strength 0.0 is the negative control and must come out undetected",
+  "feature_mi": [
+    {
+      "feature": "ciphertext_bytes",
+      "mutual_information": 0.00684550596504252,
+      "null_p95": 0.013213118517033995,
+      "family_floor": 0.01805432776053344,
+      "above_noise_floor": false,
+      "constant": true
+    },
+    {
+      "feature": "ct_byte1",
+      "mutual_information": 0.005423006929511143,
+      "null_p95": 0.013279592239820823,
+      "family_floor": 0.01805432776053344,
+      "above_noise_floor": false,
+      "constant": false
+    },
+    {
+      "feature": "ct_std",
+      "mutual_information": 0.003904185440454011,
+      "null_p95": 0.01003750160727721,
+      "family_floor": 0.01805432776053344,
+      "above_noise_floor": false,
+      "constant": false
+    },
+    {
+      "feature": "ct_byte0",
+      "mutual_information": 0.0011600456281941618,
+      "null_p95": 0.011249038629374576,
+      "family_floor": 0.01805432776053344,
+      "above_noise_floor": false,
+      "constant": false
+    },
+    {
+      "feature": "envelope_bytes",
+      "mutual_information": 0.0,
+      "null_p95": 0.012489980523746454,
+      "family_floor": 0.01805432776053344,
+      "above_noise_floor": false,
+      "constant": true
+    },
+    {
+      "feature": "ct_entropy",
+      "mutual_information": 0.0,
+      "null_p95": 0.011198044908086735,
+      "family_floor": 0.01805432776053344,
+      "above_noise_floor": false,
+      "constant": false
+    },
+    {
+      "feature": "ct_mean",
+      "mutual_information": 0.0,
+      "null_p95": 0.010629053361439841,
+      "family_floor": 0.01805432776053344,
+      "above_noise_floor": false,
+      "constant": false
+    },
+    {
+      "feature": "ct_byte_last",
+      "mutual_information": 0.0,
+      "null_p95": 0.012202048144625433,
+      "family_floor": 0.01805432776053344,
+      "above_noise_floor": false,
+      "constant": false
+    },
+    {
+      "feature": "admission_latency_ms",
+      "mutual_information": 0.0,
+      "null_p95": 0.012485941894761687,
+      "family_floor": 0.01805432776053344,
+      "above_noise_floor": false,
+      "constant": false
+    }
+  ],
+  "feature_mi_note": "mutual information is reported against a 50-permutation null. The kNN estimator returns small positive values for provably constant columns, so the raw figure is not interpretable without a noise floor. The decision rule is the family-wise floor -- the 95th percentile of the largest MI anywhere in the table on a permuted run -- because comparing nine features against nine separate 95th percentiles expects 0.45 false positives; above_noise_floor is the column to read",
+  "family_noise_floor_nats": 0.01805432776053344,
+  "features_above_noise_floor": 0,
+  "scope": "single-request observer, no auxiliary signals; multi-request correlation is experiment 6"
+}

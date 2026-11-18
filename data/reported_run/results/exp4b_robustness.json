@@ -1,0 +1,28 @@
+{
+  "chosen": {
+    "B1": {
+      "b1_max_tenants": 60,
+      "feasible": false
+    },
+    "B2": {
+      "b2_rate": 5e-06,
+      "b2_burst": 0.02,
+      "feasible": false
+    },
+    "P": {
+      "p_base_quota_frac": 0.02,
+      "p_rate_max": 2,
+      "feasible": true
+    }
+  },
+  "share_limit": 0.15,
+  "dev_seeds": [
+    0,
+    99
+  ],
+  "eval_seeds": [
+    100000,
+    100099
+  ],
+  "recovery_lease_units": 200
+}

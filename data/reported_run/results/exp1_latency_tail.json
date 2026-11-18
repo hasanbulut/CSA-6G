@@ -1,0 +1,5 @@
+{
+  "requests": 40000,
+  "requests_over_5x_scenario_median": 3,
+  "max_request_ms": 2.2883346470588237
+}

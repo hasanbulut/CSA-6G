@@ -1,0 +1,9 @@
+cls,trials,correct,accuracy,expected,observed,external,aead_opens
+context_mismatch,100,100,1.0,context_mismatch,context_mismatch,not_authorized,100
+counter_rollback,100,100,1.0,counter_rollback,counter_rollback,not_authorized,100
+evicted_replay,100,100,1.0,sequence_rollback,sequence_rollback,not_authorized,0
+expired_token,100,100,1.0,token_expired,token_expired,not_authorized,0
+nonce_replay,100,100,1.0,nonce_replay,nonce_replay,not_authorized,0
+tampered_hmac,100,100,1.0,integrity_fail,integrity_fail,not_authorized,0
+timestamp_replay,100,100,1.0,stale_timestamp,stale_timestamp,not_authorized,0
+valid_control,100,100,1.0,ok,ok,ok,100

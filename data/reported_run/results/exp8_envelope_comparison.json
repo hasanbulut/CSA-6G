@@ -1,0 +1,116 @@
+{
+  "summary": [
+    {
+      "quantity": "valid:seal_us",
+      "dual_bytes": 337,
+      "aad_bytes": 305,
+      "dual_mean": 42.4254089,
+      "aad_mean": 30.0535391,
+      "diff_aad_minus_dual": -12.371869799999999,
+      "diff_lo": -12.652954679914396,
+      "diff_hi": -12.090784920085602,
+      "diff_pct": -29.161462719573223,
+      "dual_aead_opens": NaN,
+      "aad_aead_opens": NaN
+    },
+    {
+      "quantity": "valid:server_us",
+      "dual_bytes": 337,
+      "aad_bytes": 305,
+      "dual_mean": 167.81136320000002,
+      "aad_mean": 155.0387193,
+      "diff_aad_minus_dual": -12.772643899999998,
+      "diff_lo": -13.363024679234524,
+      "diff_hi": -12.182263120765473,
+      "diff_pct": -7.611310495569586,
+      "dual_aead_opens": NaN,
+      "aad_aead_opens": NaN
+    },
+    {
+      "quantity": "valid:integrity_decrypt_us",
+      "dual_bytes": 337,
+      "aad_bytes": 305,
+      "dual_mean": 35.469280999999995,
+      "aad_mean": 23.579863400000004,
+      "diff_aad_minus_dual": -11.889417599999994,
+      "diff_lo": -12.008853376775834,
+      "diff_hi": -11.769981823224155,
+      "diff_pct": -33.52032312129472,
+      "dual_aead_opens": NaN,
+      "aad_aead_opens": NaN
+    },
+    {
+      "quantity": "reject:forged_tag",
+      "dual_bytes": 337,
+      "aad_bytes": 305,
+      "dual_mean": 34.0421871,
+      "aad_mean": 44.285693,
+      "diff_aad_minus_dual": 10.2435059,
+      "diff_lo": 9.846433902832985,
+      "diff_hi": 10.640577897167017,
+      "diff_pct": 30.090622173920195,
+      "dual_aead_opens": 0.0,
+      "aad_aead_opens": 1.0
+    },
+    {
+      "quantity": "reject:exact_replay",
+      "dual_bytes": 337,
+      "aad_bytes": 305,
+      "dual_mean": 36.2555555,
+      "aad_mean": 37.9661072,
+      "diff_aad_minus_dual": 1.7105516999999997,
+      "diff_lo": 1.4748404614859312,
+      "diff_hi": 1.9462629385140682,
+      "diff_pct": 4.718040246273429,
+      "dual_aead_opens": 0.0,
+      "aad_aead_opens": 1.0
+    },
+    {
+      "quantity": "reject:unknown_handle",
+      "dual_bytes": 337,
+      "aad_bytes": 305,
+      "dual_mean": 32.5719568,
+      "aad_mean": 46.59169429999999,
+      "diff_aad_minus_dual": 14.019737499999998,
+      "diff_lo": 5.691076428834675,
+      "diff_hi": 22.34839857116532,
+      "diff_pct": 43.042355686779,
+      "dual_aead_opens": 0.0,
+      "aad_aead_opens": 1.0
+    }
+  ],
+  "oracle": [
+    {
+      "mode": "dual",
+      "integrity_first": false,
+      "cached_median_us": 17.774,
+      "fresh_median_us": 34.53,
+      "timing_auc": 0.9983948125
+    },
+    {
+      "mode": "dual",
+      "integrity_first": true,
+      "cached_median_us": 32.0875,
+      "fresh_median_us": 26.86,
+      "timing_auc": 0.5037221562499999
+    },
+    {
+      "mode": "aad",
+      "integrity_first": false,
+      "cached_median_us": 17.579,
+      "fresh_median_us": 37.101,
+      "timing_auc": 1.0
+    },
+    {
+      "mode": "aad",
+      "integrity_first": true,
+      "cached_median_us": 35.431,
+      "fresh_median_us": 33.214,
+      "timing_auc": 0.50509315625
+    }
+  ],
+  "external_codes": 1,
+  "seeds": 100,
+  "requests_per_seed": 100,
+  "probes_per_class": 100
+}

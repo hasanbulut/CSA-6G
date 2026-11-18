@@ -1,0 +1,5 @@
+mode,integrity_first,cached_median_us,fresh_median_us,timing_auc
+dual,False,17.774,34.53,0.9983948125
+dual,True,32.0875,26.86,0.5037221562499999
+aad,False,17.579,37.101,1.0
+aad,True,35.431,33.214,0.50509315625
